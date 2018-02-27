@@ -1,0 +1,17 @@
+<h1> Artículos </h1>
+<h3 class="actions">
+  <%= @article.title%>
+</h3>
+<% unless @article.user.nil? %>
+  <p class="actions">
+    Escrito por: <%= @article.user.nickname %>
+  </p>
+<% end %>
+<div>
+  <%= @article.body%>
+</div>
+<br>
+<div>
+  <%= link_to 'Editar', edit_article_path(@article), class: 'btn be-blue white' %>
+  <%= link_to 'Regresar', articles_path, class: 'btn be-blue white' %>
+</div>

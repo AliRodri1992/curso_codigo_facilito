@@ -1,0 +1,86 @@
+html, body {
+  margin: 0px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.no-list {
+  list-style: none;
+}
+
+#logo {
+  font-size: 1.2em;
+}
+
+.red {
+  color: #d32f2f !important;
+}
+
+.be-red {
+  background-color: #d32f2f;
+}
+
+.no-margin {
+  margin: 0px;
+}
+
+.white {
+  color: white;
+}
+
+.large-padding {
+  padding: 10px 7px;
+}
+
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.field {
+  margin-top: 1em;
+}
+
+.form-control {
+  border: none;
+  border-bottom: 1px solid;
+  outline: none;
+  width: 100%;
+  display: block;
+  padding: 10px 0px;
+  font-size: 1.2em;
+}
+
+.form-element {
+  border: none;
+  border-bottom: 1px solid;
+  outline: none;
+  padding: 8px 0px;
+  font-size: 1em;
+}
+
+.btn {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 10px 12px;
+}
+
+.be-blue {
+  background-color: #64b5f6;
+}
+
+.green {
+  background-color: #4db6ac;
+  color: white;
+}
+
+.top-space, .actions {
+  margin-top: 1em;
+}
+
+.text-left {
+  text-align: left;
+}

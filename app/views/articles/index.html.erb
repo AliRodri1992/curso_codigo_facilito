@@ -1,0 +1,32 @@
+<h1>Articulos</h1>
+<% unless @articles.blank? %>
+  <% @articles.each do |article| %>
+    <h2>
+      <%= link_to article.title, article %>
+    </h2>
+    <div>
+      <%= article.body %> - <%= link_to 'Eliminar Articulo', article, method: :delete, data: {:confirm=>'¿Está seguro?'}, class: 'red' %>
+    </div>
+  <% end %>
+<% end %>
+<!--
+<table class="table">
+  <thead>
+    <tr>
+      <th> # </th>
+      <th> Titulo </th>
+      <th> Descripción </th>
+    </tr>
+  </thead>
+  <tbody>
+    <!--% unless @articles.blank? %-->
+      <!--% @articles.each do |article| %>
+        <tr>
+          <td--> <!--%= article.id %> </td>
+          <td--> <!--%= article.title %> </td>
+          <td--> <!--%= article.body %> </td>
+        </tr-->
+      <!--% end %-->
+    <!--% end %>
+  </tbody>
+</table>-->
