@@ -18,9 +18,6 @@
         <td><%= comment.user.nickname %></td>
         <td><%= comment.article.title %></td>
         <td><%= comment.body %></td>
-        <td><%= link_to 'Mostrar', comment %></td>
-        <td><%= link_to 'Editar', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Eliminar', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +25,4 @@
 
 <br>
 
-<%= link_to 'Crear Comentario', new_comment_path, class: 'btn be-blue white' %>
+<%= link_to 'Crear Comentario', new_article_comment_path, class: 'btn be-blue white' %>

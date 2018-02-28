@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
          :lockable, :timeoutable
 
   has_many :articles
+  has_many :comments
 end

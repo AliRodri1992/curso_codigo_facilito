@@ -1,6 +1,6 @@
 html, body {
   margin: 0px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif !important;
 }
 
 .no-list {
@@ -50,6 +50,15 @@ a:visited {
   font-size: 1.2em;
 }
 
+.form-text {
+  border: none;
+  border-bottom: 1px solid;
+  outline: none;
+  width: 30%;
+  padding: 20px 20px;
+  font-size: 1em;
+}
+
 .form-element {
   border: none;
   border-bottom: 1px solid;
@@ -76,6 +85,28 @@ a:visited {
   background-color: #4db6ac;
   color: white;
 }
+
+.alert-notice {
+  width: 180px;
+  background-color: #4db6ac;
+  color: white;
+  text-align: center;
+}
+#comment {
+  color: white;
+  list-style: none;
+  background-color: #546e7a ;
+  margin-top: 1em;
+  width: 25%;
+  padding: 10px 12px;
+  border-radius:12px 12px 12px 12px;
+}
+/*.alert-notice {
+  width: 180px;
+  background-color: #4db6ac;
+  color: white;
+  text-align: center;
+}*/
 
 .top-space, .actions {
   margin-top: 1em;

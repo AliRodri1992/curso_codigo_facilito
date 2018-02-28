@@ -1,7 +1,6 @@
-<h1> Artículos </h1>
-<h3 class="actions">
+<h1 class="actions">
   <%= @article.title%>
-</h3>
+</h1>
 <% unless @article.user.nil? %>
   <p class="actions">
     Escrito por: <%= @article.user.nickname %>
@@ -13,8 +12,19 @@
 <div>
   <%= @article.body%>
 </div>
-<br>
-<div>
+<div class="field">
+
+  <h3 class="actions">Comentarios</h3>
+  <ul id= 'comments-box'>
+    <% @article.comments.each do |comment| %>
+      <li id= "comment">
+        <%= comment.body %> - <%= comment.user.nickname %>
+      </li>
+    <% end %>
+  </ul>
+  <%= render 'comments/form' %>
+</div>
+<div class="actions">
   <%= link_to 'Editar', edit_article_path(@article), class: 'btn be-blue white' %>
   <%= link_to 'Regresar', articles_path, class: 'btn be-blue white' %>
 </div>

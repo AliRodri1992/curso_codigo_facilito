@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
   # Get /articles/:id
   def show
     @article.update_visits_count
+    @comment = Comment.new
   end
 
   # Get /articles/new
