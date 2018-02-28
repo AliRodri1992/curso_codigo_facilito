@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   # before_action :validate_user, except: [:show, :index]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show, :index]
+  before_action :set_article, except: [:index, :new, :create]
   # Get /articles
   def index
     @articles = Article.all
@@ -8,7 +9,7 @@ class ArticlesController < ApplicationController
 
   # Get /articles/:id
   def show
-    @article = Article.find(params[:id])
+    @article.update_visits_count
   end
 
   # Get /articles/new
@@ -20,7 +21,6 @@ class ArticlesController < ApplicationController
   def create
     if user_signed_in?
       @article = current_user.articles.new(article_params)
-      @article.visits_count = 0
       if @article.save
         flash[:success] = 'Articulo creado exitosamente.'
         redirect_to @article
@@ -33,7 +33,6 @@ class ArticlesController < ApplicationController
 
   # Delete /articles/:id
   def destroy
-    @article = Article.find(params[:id])
     @article.destroy
     flash[:success] = 'Articulo eliminado exitosamente.'
     redirect_to articles_path
@@ -41,7 +40,6 @@ class ArticlesController < ApplicationController
 
   # Put /article/:id
   def update
-    @article = Article.find(params[:id])
     if @article.update(article_params)
       flash[:success] = 'Artículo actualizado exitosamente.'
       redirect_to @article
@@ -51,12 +49,15 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   private
   def article_params
     params.require(:article).permit(:title, :body)
+  end
+
+  def set_article
+    @article = Article.find(params[:id])
   end
 
   def validate_user

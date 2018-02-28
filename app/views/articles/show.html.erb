@@ -7,6 +7,9 @@
     Escrito por: <%= @article.user.nickname %>
   </p>
 <% end %>
+<p class="actions">
+  Visitas: <%= @article.visits_count%>
+</p>
 <div>
   <%= @article.body%>
 </div>
