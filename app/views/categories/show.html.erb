@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1 style="color: <%= @category.color %>"> <%= @category.name %> </h1>
+<h2> Artículos </h2>
+<% unless @category.articles.nil? %>
+  <% @category.articles.each do |article| %>
+    <h3>
+      <%= link_to article.title, article %>
+    </h3>
+    <div>
+      <%= article.body %> - <%= link_to 'Eliminar Articulo', article, method: :delete, data: {:confirm=>'¿Está seguro?'}, class: 'red' %>
+    </div>
+  <% end %>
+<% end %>
+<div class="actions"></div>
+<%= link_to 'Editar Categoria', edit_category_path(@category), class: 'btn be-blue white' %>
+<%= link_to 'Regresar', categories_path, class: 'btn be-blue white' %>

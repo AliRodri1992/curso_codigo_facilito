@@ -6,14 +6,26 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :titulo %>:
+    <%= f.label :title, 'Titulo' %>:
     <%= f.text_field :title, placeholder: 'Ingresar Titulo', class:"form-control"%>
   </div>
   <div class="field">
-    <%= f.label :comentario %>:
+    <%= f.label :cover, 'Portada' %>:
+    <%= f.file_field :cover %>
+  </div>
+  <div class="field">
+    <%= f.label :category, 'Categoria' %>:
+    <% @categories.each do |category| %>
+      <div class="field">
+        <%= check_box_tag 'categories[]', category.id %> <%= category.name %>
+      </div>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :body, 'Comentario' %>:
     <%= f.text_area :body, placeholder: 'Ingresar Artículo', style:'height:250px;', class:'form-control' %>
   </div>
   <div class="field">
-    <%= f.submit 'Guardar Artículo', class: 'btn be-blue white'%>
+    <%= f.submit 'Guardar Artículo', class: 'btn be-blue white' %>
   </div>
 <% end %>

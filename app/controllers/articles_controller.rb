@@ -16,12 +16,14 @@ class ArticlesController < ApplicationController
   # Get /articles/new
   def new
     @article = Article.new
+    @categories = Category.all.order(:name)
   end
 
   # Post /articles
   def create
     if user_signed_in?
       @article = current_user.articles.new(article_params)
+      @article.categories = params[:categories]
       if @article.save
         flash[:success] = 'Articulo creado exitosamente.'
         redirect_to @article
@@ -54,7 +56,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :body)
+    params.require(:article).permit(:title, :body, :cover, :categories)
   end
 
   def set_article

@@ -1,4 +1,4 @@
-<h1>Articulos</h1>
+<h1> Articulos | <%= link_to 'Nuevo Articulo', new_article_path %> </h1>
 <% unless @articles.blank? %>
   <% @articles.each do |article| %>
     <h2>

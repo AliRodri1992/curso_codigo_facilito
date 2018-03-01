@@ -1,19 +1,24 @@
 <h1 class="actions">
   <%= @article.title%>
 </h1>
-<% unless @article.user.nil? %>
-  <p class="actions">
-    Escrito por: <%= @article.user.nickname %>
-  </p>
+Escrito por: <%= @article.user.nil? ? "Sin Nickname": @article.user.nickname %>
+<br>
+Visitas: <%= @article.visits_count%>
+<div class="actions">
+  Categoria (s):
+  <% @article.categories.each do |category| %>
+    <%= link_to category.name, category, style: "color: #{category.color}" %> |
+  <% end %>
+</div>
+<% unless @article.cover.blank? %>
+  <div class="actions">
+    <%= image_tag @article.cover.url(:thumb) %>
+  </div>
 <% end %>
-<p class="actions">
-  Visitas: <%= @article.visits_count%>
-</p>
-<div>
+<div class="actions">
   <%= @article.body%>
 </div>
 <div class="field">
-
   <h3 class="actions">Comentarios</h3>
   <ul id= 'comments-box'>
     <% @article.comments.each do |comment| %>
